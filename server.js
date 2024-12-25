@@ -21,8 +21,6 @@ bot.onText(/\/start/, async (msg) => {
    const foundUser = await model.foundUser(chatId)
 
    if (foundUser) {
-      const inputString = `m=6697d19280d270b331826481;ac.user_id=${chatId};ac.tarif=Planner;ac.ilova=Lifeplanneruz;a=500000`;
-      const encodedString = btoa(inputString);
 
       bot.sendMessage(chatId, localText?.freeFileLink)
       bot.sendMessage(chatId, localText?.premiumFileText, {
@@ -31,10 +29,6 @@ bot.onText(/\/start/, async (msg) => {
                [{
                   text: localText.clickBtn,
                   url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=%1000&additional_param4=Planner`
-               }],
-               [{
-                  text: localText.paymeBtn,
-                  url: `https://checkout.paycom.uz/${encodedString}`
                }]
             ],
          }
@@ -87,8 +81,6 @@ bot.on('contact', async (msg) => {
       const addPhoneUser = await model.addUser(chatId, phoneNumber, name)
 
       if (addPhoneUser) {
-         const inputString = `m=6697d19280d270b331826481;ac.user_id=${chatId};ac.tarif=Planner;ac.ilova=Lifeplanneruz;a=500000`;
-         const encodedString = btoa(inputString);
 
          bot.sendMessage(chatId, localText.freeFileLink)
          bot.sendMessage(chatId, localText?.premiumFileText, {
@@ -97,10 +89,6 @@ bot.on('contact', async (msg) => {
                   [{
                      text: localText.clickBtn,
                      url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=%1000&additional_param4=Planner`
-                  }],
-                  [{
-                     text: localText.clickBtn,
-                     url: `https://checkout.paycom.uz/${encodedString}`
                   }]
                ],
             }
