@@ -36,7 +36,7 @@ bot.onText(/\/start/, async (msg) => {
    } else {
       bot.sendMessage(chatId, localText.mainText, {
          reply_markup: {
-            inline_keyboard: [
+            keyboard: [
                [
                   {
                      text: localText.sendContact,
