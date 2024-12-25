@@ -88,7 +88,7 @@ bot.on('contact', async (msg) => {
                inline_keyboard: [
                   [{
                      text: localText.clickBtn,
-                     url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=%1000&additional_param4=Planner`
+                     url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=1000&additional_param4=Planner`
                   }]
                ],
             }
