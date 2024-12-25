@@ -38,8 +38,6 @@ bot.onText(/\/start/, async (msg) => {
                }]
             ],
          }
-      }).then(async () => {
-         await model.editStep(chatId, 'pay')
       })
    } else {
       bot.sendMessage(chatId, localText.mainText, {
@@ -55,8 +53,6 @@ bot.onText(/\/start/, async (msg) => {
             ],
             resize_keyboard: true
          }
-      }).then(async () => {
-         await model.editStep(chatId, 'contact')
       })
    }
 })
@@ -108,9 +104,19 @@ bot.on('contact', async (msg) => {
                   }]
                ],
             }
-         }).then(async () => {
-            await model.editStep(chatId, 'pay')
          })
       }
    }
 })
+
+app.use(cors({
+   origin: "*"
+}));
+app.use(express.json());
+app.use(express.urlencoded({
+   extended: true
+}));
+app.use('/public', express.static(path.resolve(__dirname, 'public')))
+app.use("/api/v1", router);
+
+app.listen(5000, console.log(5000))
