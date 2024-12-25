@@ -22,16 +22,17 @@ bot.onText(/\/start/, async (msg) => {
 
    if (foundUser) {
 
-      bot.sendMessage(chatId, localText?.freeFileLink)
-      bot.sendMessage(chatId, localText?.premiumFileText, {
-         reply_markup: {
-            inline_keyboard: [
-               [{
-                  text: localText.clickBtn,
-                  url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=1000&additional_param4=Planner`
-               }]
-            ],
-         }
+      bot.sendMessage(chatId, localText?.freeFileLink).then(async () => {
+         bot.sendMessage(chatId, localText?.premiumFileText, {
+            reply_markup: {
+               inline_keyboard: [
+                  [{
+                     text: localText.clickBtn,
+                     url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=1000&additional_param4=Planner`
+                  }]
+               ],
+            }
+         })
       })
    } else {
       bot.sendMessage(chatId, localText.mainText, {
@@ -82,16 +83,17 @@ bot.on('contact', async (msg) => {
 
       if (addPhoneUser) {
 
-         bot.sendMessage(chatId, localText.freeFileLink)
-         bot.sendMessage(chatId, localText?.premiumFileText, {
-            reply_markup: {
-               inline_keyboard: [
-                  [{
-                     text: localText.clickBtn,
-                     url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=1000&additional_param4=Planner`
-                  }]
-               ],
-            }
+         bot.sendMessage(chatId, localText.freeFileLink).then(async () => {
+            bot.sendMessage(chatId, localText?.premiumFileText, {
+               reply_markup: {
+                  inline_keyboard: [
+                     [{
+                        text: localText.clickBtn,
+                        url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=1000&additional_param4=Planner`
+                     }]
+                  ],
+               }
+            })
          })
       }
    }
