@@ -55,7 +55,7 @@ bot.on('contact', async (msg) => {
    const chatId = msg.chat.id;
    const foundUser = await model.foundUser(chatId)
 
-   if (msg.contact && foundUser?.step == 'contact') {
+   if (msg.contact) {
       let phoneNumber = msg.contact.phone_number;
       let name = msg.contact.first_name;
 
