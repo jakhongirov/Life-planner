@@ -109,7 +109,7 @@ app.use(express.urlencoded({
 
 app.get('/:chat_id', async (req, res) => {
    const { chat_id } = req.params
-   bot.sendMessage(chat_id, "https://docs.google.com/spreadsheets/d/16cwgMTQf6UjiPdpYxZLwns1j5k2OGj_UjJLs9dg3gvI/edit?usp=sharing")
+   bot.sendMessage(chat_id, localText.successPaymentText)
 
    return res.status(200).json({
       message: "ok"
