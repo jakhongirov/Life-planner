@@ -102,7 +102,8 @@ bot.onText(/\/start/, async (msg) => {
                      text: localText.communityBtn
                   }
                ]
-            ]
+            ],
+            resize_keyboard: true
          }
       }).then(async () => {
          bot.sendMediaGroup(chatId, productivity,).then(async () => {
@@ -221,7 +222,8 @@ bot.on('contact', async (msg) => {
                         text: localText.communityBtn
                      }
                   ]
-               ]
+               ],
+               resize_keyboard: true
             }
          }).then(async () => {
             bot.sendMediaGroup(chatId, productivity,).then(async () => {
