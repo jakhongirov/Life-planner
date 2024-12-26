@@ -305,9 +305,18 @@ app.use(express.urlencoded({
    extended: true
 }));
 
-app.get('/:chat_id', async (req, res) => {
-   const { chat_id } = req.params
-   bot.sendMessage(chat_id, localText.successPaymentText)
+app.get('/:chat_id/:tarif', async (req, res) => {
+   const { chat_id, tarif } = req.params
+
+   if (tarif == "Produktivlik") {
+      bot.sendMessage(chat_id, localText.productivityTextLink)
+   } else if (tarif == "Vazifalar") {
+      bot.sendMessage(chat_id, localText.taskTextLink)
+   } else if (tarif == "Odatlar") {
+      bot.sendMessage(chat_id, localText.habitTextLink)
+   } else if (tarif == "Barchasi") {
+      bot.sendMessage(chat_id, localText.allTextLink)
+   }
 
    return res.status(200).json({
       message: "ok"
