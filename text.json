@@ -1,10 +1,20 @@
 {
-	"freeFileLink": "Ajoyib, ro'yxatdan o'tdingiz..\n\nSizga va'da qilingiz plannerdan ushbu havola orqali foydalanishingiz mumkin: https://docs.google.com/spreadsheets/d/1x5cf5h8Q7D8U1viy9ooa1scmkNycIjumou3olHwS7T8/edit?usp=sharing",
-	"premiumFileText": "Bundanda kuchliroq bo'lgan, yillik maqsadlaringizni va hattoki kundalik vazifalaringizni nazorat qiluvchi yana 2 ta 'Odatlar' va 'Vazifalar' plannerlariga ham egalik qilishni istaysizmi? \n\nHoziroq atiga 99,000 so'm evaziga harid qila olasiz - Ertaga esa narx o'zgarishi mumkin...",
-	"clickBtn": "Click orqali olish",
-	"paymeBtn": "PAYME",
-	"mainText": "Lifeplanner_uz botiga hush kelibsiz. Bepul \"Maqsadlar\" plannerini qo'lga kiritish uchun, iltimos, kontaktingizni yuboring.",
+	"productivityText": "Produktivlik planneri – Kundalik unumdorlikni oshirish uchun qulay yechim. Ishlaringizni tartibga soling, muhim vazifalarga e’tibor qarating va o‘z vaqtingizni samarali boshqaring. Bu planner - produktivligingiz va resurslaringizni oshirishga yordam beradi",
+	"productivityTextLink": "Haringiz uchun rahmat! Mana bu esa - Sizning Produktivlik planneringiz uchun havola: https://docs.google.com/spreadsheets/d/1x5cf5h8Q7D8U1viy9ooa1scmkNycIjumou3olHwS7T8/edit?usp=sharing",
+	"taskText": "Vazifalar planneri – Katta maqsadlaringizni mayda qadamlar bilan amalga oshirishni boshlang. Kundalik vazifalarni rejalashtirish va ularni muvaffaqiyatli bajarish endi yanada oson! Bu planner - vazifalaringizni tartiblashga yordam beradi",
+	"taskTextLink": "Haringiz uchun rahmat! Mana bu esa - Sizning Vazifalar planneringiz uchun havola: https://docs.google.com/spreadsheets/d/1-z3FSL9gn22cWxiqLixjc1zlEDYxMxcqzQ7kTzPOOl4/edit?usp=sharing",
+	"habitText": "Odatlar planneri – Yillik maqsadlaringizni kundalik odatlar orqali boshqaring. Yangi odatlar qiling, eski odatlarni tark eting va kuningizni kuzatib boring. Bu planner har bir qadamda sizni rag‘batlantirib, maqsadlaringiz sari intilishingizga yordam beradi.",
+	"habitTextLink": "Haringiz uchun rahmat! Mana bu esa - Sizning Odatlar planneringiz uchun havola: https://docs.google.com/spreadsheets/d/16cwgMTQf6UjiPdpYxZLwns1j5k2OGj_UjJLs9dg3gvI/edit?usp=sharing",
+	"allText": "Yuqoridagi har bir planner hayotingizdagi mos yo'nalishlarda maqsadlaringizga yetishingizga yordam beradi.\n\nAgar haqiqatdan ham 2025 yilni rejali va maqsadli boshlamoqchi bo'lsangiz - biz sizni qo'llab quvvatlaymiz va bu 3 ta plannerni atiga 99,000 so'm evaziga harid qilishingizni ta'minlaymiz.",
+	"allTextLink": "Haridingiz uchun rahmat, ishonamizki har bir planner maqsadlaringizga yetishingizdagi eng yaxshi yordamchilardan biri bo'ladi oladi. Quyida esa plannerlaringiz uchun havolalar:\n\nOdatlar planneri: https://docs.google.com/spreadsheets/d/16cwgMTQf6UjiPdpYxZLwns1j5k2OGj_UjJLs9dg3gvI/edit?usp=sharing\n\nProduktivlik planneri: https://docs.google.com/spreadsheets/d/1x5cf5h8Q7D8U1viy9ooa1scmkNycIjumou3olHwS7T8/edit?usp=sharing\n\nVazifalar planneri: https://docs.google.com/spreadsheets/d/1-z3FSL9gn22cWxiqLixjc1zlEDYxMxcqzQ7kTzPOOl4/edit?usp=sharing",
+	"clickBtnTask": "Harid qilish - 49,000",
+	"clickBtnProductivity": "Harid qilish - 49,000",
+	"clickBtnHabit": "Harid qilish - 49,000",
+	"clickBtnAll": "Atiga 99,000ga harid",
+
+	"mainText": "Lifeplanner_uz botiga hush kelibsiz. Plannerlarni ko'rish uchun iltimos, kontaktingizni yuboring:",
 	"sendContact": "👤 Kontakt yuborish",
 	"contactErrorText": "Ko'rinishidan, bu sizning kontakt raqamingiz emas, iltimos, pastdagi tugma orqali yuboring.",
-	"successPaymentText": "Haridingiz uchun rahmat. Quyidagi havolalar orqali 'Odatlar' va 'Vazifalar' plannerlarini yuklab olishingiz mumkin:\n\nOdatlar planneri - https://docs.google.com/spreadsheets/d/16cwgMTQf6UjiPdpYxZLwns1j5k2OGj_UjJLs9dg3gvI/edit?usp=sharing\n\nVazifalar planner - https://docs.google.com/spreadsheets/d/1-z3FSL9gn22cWxiqLixjc1zlEDYxMxcqzQ7kTzPOOl4/edit?usp=sharing"
+	"communityBtn": "👥 Guruhga qo'shilish",
+	"communityText": "Plannerlar bo'yicha muhokama guruhiga qo'shilish uchun havola: @lifeplanneruz"
 }
