@@ -310,6 +310,8 @@ app.use(express.urlencoded({
 app.get('/:chat_id/:tarif', async (req, res) => {
    const { chat_id, tarif } = req.params
 
+   console.log(chat_id, tarif)
+
    if (tarif == "Produktivlik") {
       bot.sendMessage(chat_id, localText.productivityTextLink)
    } else if (tarif == "Vazifalar") {
