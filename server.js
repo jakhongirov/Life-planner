@@ -4,18 +4,10 @@ const cors = require("cors");
 const path = require('path')
 const fs = require('fs');
 const app = express();
+const { PORT } = require('./src/config')
 const localText = require('./text.json')
 const model = require('./model')
-
-const TelegramBot = require('node-telegram-bot-api');
-const { text } = require('stream/consumers');
-const bot = new TelegramBot(process.env.BOT_TOKEN, {
-   polling: {
-      interval: 1000,
-      autoStart: true,
-      allowedUpdates: ['chat_member'] // Explicitly allow chat_member updates
-   }
-});
+const bot = require('./src/lib/bot')
 
 const productivity = [
    {
@@ -115,6 +107,12 @@ bot.onText(/\/start/, async (msg) => {
                            text: localText?.clickBtnProductivity,
                            url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
                         }
+                     ],
+                     [
+                        {
+                           text: localText?.paymeBtnProductivity,
+                           url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
+                        }
                      ]
                   ]
                }
@@ -127,6 +125,12 @@ bot.onText(/\/start/, async (msg) => {
                               {
                                  text: localText?.clickBtnTask,
                                  url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
+                              }
+                           ],
+                           [
+                              {
+                                 text: localText?.paymeBtnTask,
+                                 url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
                               }
                            ]
                         ]
@@ -142,6 +146,12 @@ bot.onText(/\/start/, async (msg) => {
                                     text: localText?.clickBtnHabit,
                                     url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
                                  }
+                              ],
+                              [
+                                 {
+                                    text: localText?.paymeBtnHabit,
+                                    url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
+                                 }
                               ]
                            ]
                         }
@@ -155,7 +165,13 @@ bot.onText(/\/start/, async (msg) => {
                                           text: localText?.clickBtnAll,
                                           url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
                                        }
-                                    ]
+                                    ],
+                                    [
+                                       {
+                                          text: localText?.paymeBtnAll,
+                                          url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
+                                       }
+                                    ],
                                  ]
                               }
                            })
@@ -235,6 +251,12 @@ bot.on('contact', async (msg) => {
                               text: localText?.clickBtnProductivity,
                               url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
                            }
+                        ],
+                        [
+                           {
+                              text: localText?.paymeBtnProductivity,
+                              url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
+                           }
                         ]
                      ]
                   }
@@ -248,7 +270,13 @@ bot.on('contact', async (msg) => {
                                     text: localText?.clickBtnTask,
                                     url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
                                  }
-                              ]
+                              ],
+                              [
+                                 {
+                                    text: localText?.paymeBtnTask,
+                                    url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
+                                 }
+                              ],
                            ]
                         }
                      })
@@ -262,6 +290,12 @@ bot.on('contact', async (msg) => {
                                        text: localText?.clickBtnHabit,
                                        url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
                                     }
+                                 ],
+                                 [
+                                    {
+                                       text: localText?.paymeBtnHabit,
+                                       url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
+                                    }
                                  ]
                               ]
                            }
@@ -273,6 +307,12 @@ bot.on('contact', async (msg) => {
                                        [
                                           {
                                              text: localText?.clickBtnAll,
+                                             url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
+                                          }
+                                       ],
+                                       [
+                                          {
+                                             text: localText?.paymeBtnAll,
                                              url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
                                           }
                                        ]
@@ -327,4 +367,4 @@ app.get('/:chat_id/:tarif', async (req, res) => {
    })
 })
 
-app.listen(5000, console.log(5000))
+app.listen(PORT, console.log(PORT))

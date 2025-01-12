@@ -1,4 +1,4 @@
-const { fetch } = require('./postgres')
+const { fetch } = require('./src/lib/postgres')
 
 const foundUser = (chatId) => {
    const QUERY = `
