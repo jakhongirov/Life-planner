@@ -20,7 +20,9 @@ module.exports = {
 
          if (error_note === 'Success') {
             if (merchant_trans_id == "Lifeplanneruz") {
+               console.log(amount)
                if (amount != 99000 || amount != 49000) {
+                  console.log(amount)
                   return res.json({
                      error_code: 400,
                      error_note: "Неверная сумма."
