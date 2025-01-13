@@ -109,12 +109,12 @@ bot.onText(/\/start/, async (msg) => {
                            url: `https://planner.aiseller.uz/click/${chatId}/Produktivlik`
                         }
                      ],
-                     // [
-                     //    {
-                     //       text: localText?.paymeBtnProductivity,
-                     //       url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
-                     //    }
-                     // ]
+                     [
+                        {
+                           text: localText?.paymeBtnProductivity,
+                           url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
+                        }
+                     ]
                   ]
                }
             }).then(async () => {
@@ -128,12 +128,12 @@ bot.onText(/\/start/, async (msg) => {
                                  url: `https://planner.aiseller.uz/click/${chatId}/Vazifalar`
                               }
                            ],
-                           // [
-                           //    {
-                           //       text: localText?.paymeBtnTask,
-                           //       url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
-                           //    }
-                           // ]
+                           [
+                              {
+                                 text: localText?.paymeBtnTask,
+                                 url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
+                              }
+                           ]
                         ]
                      }
                   })
@@ -148,12 +148,12 @@ bot.onText(/\/start/, async (msg) => {
                                     url: `https://planner.aiseller.uz/click/${chatId}/Odatlar`
                                  }
                               ],
-                              // [
-                              //    {
-                              //       text: localText?.paymeBtnHabit,
-                              //       url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
-                              //    }
-                              // ]
+                              [
+                                 {
+                                    text: localText?.paymeBtnHabit,
+                                    url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
+                                 }
+                              ]
                            ]
                         }
                      }).then(async () => {
@@ -167,12 +167,12 @@ bot.onText(/\/start/, async (msg) => {
                                           url: `https://planner.aiseller.uz/click/${chatId}/Barchasi`
                                        }
                                     ],
-                                    // [
-                                    //    {
-                                    //       text: localText?.paymeBtnAll,
-                                    //       url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
-                                    //    }
-                                    // ]
+                                    [
+                                       {
+                                          text: localText?.paymeBtnAll,
+                                          url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
+                                       }
+                                    ]
                                  ]
                               }
                            })
@@ -253,12 +253,12 @@ bot.on('contact', async (msg) => {
                               url: `https://planner.aiseller.uz/click/${chatId}/Produktivlik`
                            }
                         ],
-                        // [
-                        //    {
-                        //       text: localText?.paymeBtnProductivity,
-                        //       url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
-                        //    }
-                        // ]
+                        [
+                           {
+                              text: localText?.paymeBtnProductivity,
+                              url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
+                           }
+                        ]
                      ]
                   }
                }).then(async () => {
@@ -272,12 +272,12 @@ bot.on('contact', async (msg) => {
                                     url: `https://planner.aiseller.uz/click/${chatId}/Vazifalar`
                                  }
                               ],
-                              // [
-                              //    {
-                              //       text: localText?.paymeBtnTask,
-                              //       url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
-                              //    }
-                              // ]
+                              [
+                                 {
+                                    text: localText?.paymeBtnTask,
+                                    url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
+                                 }
+                              ]
                            ]
                         }
                      })
@@ -292,12 +292,12 @@ bot.on('contact', async (msg) => {
                                        url: `https://planner.aiseller.uz/click/${chatId}/Odatlar`
                                     }
                                  ],
-                                 // [
-                                 //    {
-                                 //       text: localText?.paymeBtnHabit,
-                                 //       url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
-                                 //    }
-                                 // ]
+                                 [
+                                    {
+                                       text: localText?.paymeBtnHabit,
+                                       url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
+                                    }
+                                 ]
                               ]
                            }
                         }).then(async () => {
@@ -311,12 +311,12 @@ bot.on('contact', async (msg) => {
                                              url: `https://planner.aiseller.uz/click/${chatId}/Barchasi`
                                           }
                                        ],
-                                       // [
-                                       //    {
-                                       //       text: localText?.paymeBtnAll,
-                                       //       url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
-                                       //    }
-                                       // ]
+                                       [
+                                          {
+                                             text: localText?.paymeBtnAll,
+                                             url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
+                                          }
+                                       ]
                                     ]
                                  }
                               })
