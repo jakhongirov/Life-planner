@@ -155,6 +155,8 @@ const foundTransactionList = (from, to) => {
       SELECT
          *
       FROM
+         payme
+      WHERE
          create_time >= $1 AND create_time <= $2;
    `;
 
