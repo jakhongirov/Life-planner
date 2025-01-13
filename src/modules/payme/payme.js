@@ -12,10 +12,28 @@ module.exports = {
             console.log("CheckPerformTransaction", req.body)
             const foundUser = await model.foundUser(params?.account?.user_id)
 
-            let { amount } = params;
-            amount = Math.floor(amount / 100);
-
-            if (params?.amount != 9900000 || params?.amount != 4900000) {
+            if (params?.amount == 9900000 || params?.amount == 4900000) {
+               if (foundUser) {
+                  return res.status(200).json({
+                     result: {
+                        allow: true
+                     }
+                  })
+               } else {
+                  return res.json({
+                     error: {
+                        name: "UserNotFound",
+                        code: -31099,
+                        message: {
+                           uz: "Biz sizning hisobingizni topolmadik.",
+                           ru: "Мы не нашли вашу учетную запись",
+                           en: "We couldn't find your account",
+                        }
+                     },
+                     id: id
+                  })
+               }
+            } else {
                return res.json({
                   error: {
                      name: "InvalidAmount",
@@ -30,46 +48,11 @@ module.exports = {
                });
             }
 
-            if (foundUser) {
-               return res.status(200).json({
-                  result: {
-                     allow: true
-                  }
-               })
-            } else {
-               return res.json({
-                  error: {
-                     name: "UserNotFound",
-                     code: -31099,
-                     message: {
-                        uz: "Biz sizning hisobingizni topolmadik.",
-                        ru: "Мы не нашли вашу учетную запись",
-                        en: "We couldn't find your account",
-                     }
-                  },
-                  id: id
-               })
-            }
          } else if (method == "CreateTransaction") {
             console.log("CreateTransaction", req.body)
 
             let { amount } = params;
             amount = Math.floor(amount / 100);
-
-            if (params?.amount != 9900000 || params?.amount != 4900000) {
-               return res.json({
-                  error: {
-                     name: "InvalidAmount",
-                     code: -31001,
-                     message: {
-                        uz: "Noto'g'ri summa.",
-                        ru: "Неверная сумма.",
-                        en: "Incorrect amount.",
-                     }
-                  },
-                  id: id
-               });
-            }
 
             const transaction = await model.foundTransaction(params.id);
             const foundUser = await model.foundUser(params?.account?.user_id)
