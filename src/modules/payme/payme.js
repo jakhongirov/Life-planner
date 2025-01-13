@@ -306,15 +306,15 @@ module.exports = {
                      transactions: foundTransactionList.map((transaction) => {
                         return {
                            id: transaction.id,
-                           time: transaction.transaction_create_at,
+                           time: new Date(transaction.transaction_create_at).getTime(),
                            amount: Number(transaction.amount * 1000),
                            account: {
                               user_id: transaction.chat_id,
                               tarif: transaction.payment,
                            },
-                           create_time: transaction.create_time || 0,
-                           perform_time: transaction.perform_time || 0,
-                           cancel_time: transaction.cancel_time || 0,
+                           create_time: Number(transaction.create_time) || 0,
+                           perform_time: Number(transaction.perform_time) || 0,
+                           cancel_time: Number(transaction.cancel_time) || 0,
                            transaction: transaction.transaction,
                            state: transaction.state,
                            reason: transaction.reason || null,
