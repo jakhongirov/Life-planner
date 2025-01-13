@@ -100,24 +100,28 @@ bot.onText(/\/start/, async (msg) => {
          }
       }).then(async () => {
          bot.sendMediaGroup(chatId, productivity,).then(async () => {
+            const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Produktivlik;ac.ilova=Lifeplanneruz;a=4900000`;
+            const base64Encoded = btoa(text);
             bot.sendMessage(chatId, localText?.productivityText, {
                reply_markup: {
                   inline_keyboard: [
                      [
                         {
                            text: localText?.clickBtnProductivity,
-                           url: `https://planner.aiseller.uz/click/${chatId}/Produktivlik`
+                           url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
                         }
                      ],
                      [
                         {
                            text: localText?.paymeBtnProductivity,
-                           url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
+                           url: `https://checkout.paycom.uz/${base64Encoded}`
                         }
                      ]
                   ]
                }
             }).then(async () => {
+               const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Vazifalar;ac.ilova=Lifeplanneruz;a=4900000`;
+               const base64Encoded = btoa(text);
                bot.sendMediaGroup(chatId, tasks,).then(async () => {
                   bot.sendMessage(chatId, localText?.taskText, {
                      reply_markup: {
@@ -125,19 +129,21 @@ bot.onText(/\/start/, async (msg) => {
                            [
                               {
                                  text: localText?.clickBtnTask,
-                                 url: `https://planner.aiseller.uz/click/${chatId}/Vazifalar`
+                                 url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
                               }
                            ],
                            [
                               {
                                  text: localText?.paymeBtnTask,
-                                 url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
+                                 url: `https://checkout.paycom.uz/${base64Encoded}`
                               }
                            ]
                         ]
                      }
                   })
                }).then(async () => {
+                  const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Odatlar;ac.ilova=Lifeplanneruz;a=4900000`;
+                  const base64Encoded = btoa(text);
                   bot.sendMediaGroup(chatId, habit,).then(async () => {
                      bot.sendMessage(chatId, localText?.habitText, {
                         reply_markup: {
@@ -145,18 +151,20 @@ bot.onText(/\/start/, async (msg) => {
                               [
                                  {
                                     text: localText?.clickBtnHabit,
-                                    url: `https://planner.aiseller.uz/click/${chatId}/Odatlar`
+                                    url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
                                  }
                               ],
                               [
                                  {
                                     text: localText?.paymeBtnHabit,
-                                    url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
+                                    url: `https://checkout.paycom.uz/${base64Encoded}`
                                  }
                               ]
                            ]
                         }
                      }).then(async () => {
+                        const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
+                        const base64Encoded = btoa(text);
                         bot.sendMediaGroup(chatId, all).then(async () => {
                            bot.sendMessage(chatId, localText?.allText, {
                               reply_markup: {
@@ -164,13 +172,13 @@ bot.onText(/\/start/, async (msg) => {
                                     [
                                        {
                                           text: localText?.clickBtnAll,
-                                          url: `https://planner.aiseller.uz/click/${chatId}/Barchasi`
+                                          url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
                                        }
                                     ],
                                     [
                                        {
                                           text: localText?.paymeBtnAll,
-                                          url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
+                                          url: `https://checkout.paycom.uz/${base64Encoded}`
                                        }
                                     ]
                                  ]
@@ -244,38 +252,42 @@ bot.on('contact', async (msg) => {
             }
          }).then(async () => {
             bot.sendMediaGroup(chatId, productivity,).then(async () => {
+               const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Produktivlik;ac.ilova=Lifeplanneruz;a=4900000`;
+               const base64Encoded = btoa(text);
                bot.sendMessage(chatId, localText?.productivityText, {
                   reply_markup: {
                      inline_keyboard: [
                         [
                            {
                               text: localText?.clickBtnProductivity,
-                              url: `https://planner.aiseller.uz/click/${chatId}/Produktivlik`
+                              url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
                            }
                         ],
                         [
                            {
                               text: localText?.paymeBtnProductivity,
-                              url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
+                              url: `https://checkout.paycom.uz/${base64Encoded}`
                            }
                         ]
                      ]
                   }
                }).then(async () => {
                   bot.sendMediaGroup(chatId, tasks,).then(async () => {
+                     const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Vazifalar;ac.ilova=Lifeplanneruz;a=4900000`;
+                     const base64Encoded = btoa(text);
                      bot.sendMessage(chatId, localText?.taskText, {
                         reply_markup: {
                            inline_keyboard: [
                               [
                                  {
                                     text: localText?.clickBtnTask,
-                                    url: `https://planner.aiseller.uz/click/${chatId}/Vazifalar`
+                                    url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
                                  }
                               ],
                               [
                                  {
                                     text: localText?.paymeBtnTask,
-                                    url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
+                                    url: `https://checkout.paycom.uz/${base64Encoded}`
                                  }
                               ]
                            ]
@@ -283,38 +295,42 @@ bot.on('contact', async (msg) => {
                      })
                   }).then(async () => {
                      bot.sendMediaGroup(chatId, habit,).then(async () => {
+                        const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Odatlar;ac.ilova=Lifeplanneruz;a=4900000`;
+                        const base64Encoded = btoa(text);
                         bot.sendMessage(chatId, localText?.habitText, {
                            reply_markup: {
                               inline_keyboard: [
                                  [
                                     {
                                        text: localText?.clickBtnHabit,
-                                       url: `https://planner.aiseller.uz/click/${chatId}/Odatlar`
+                                       url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
                                     }
                                  ],
                                  [
                                     {
                                        text: localText?.paymeBtnHabit,
-                                       url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
+                                       url: `https://checkout.paycom.uz/${base64Encoded}`
                                     }
                                  ]
                               ]
                            }
                         }).then(async () => {
                            bot.sendMediaGroup(chatId, all).then(async () => {
+                              const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
+                              const base64Encoded = btoa(text);
                               bot.sendMessage(chatId, localText?.allText, {
                                  reply_markup: {
                                     inline_keyboard: [
                                        [
                                           {
                                              text: localText?.clickBtnAll,
-                                             url: `https://planner.aiseller.uz/click/${chatId}/Barchasi`
+                                             url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
                                           }
                                        ],
                                        [
                                           {
                                              text: localText?.paymeBtnAll,
-                                             url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
+                                             url: `https://checkout.paycom.uz/${base64Encoded}`
                                           }
                                        ]
                                     ]
