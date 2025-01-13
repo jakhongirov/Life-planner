@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require('path')
 const fs = require('fs');
 const app = express();
+const router = require("./src/modules");
 const { PORT } = require('./src/config')
 const localText = require('./text.json')
 const model = require('./model')
@@ -105,15 +106,15 @@ bot.onText(/\/start/, async (msg) => {
                      [
                         {
                            text: localText?.clickBtnProductivity,
-                           url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
+                           url: `https://planner.aiseller.uz/click/${chatId}/Produktivlik`
                         }
                      ],
-                     [
-                        {
-                           text: localText?.paymeBtnProductivity,
-                           url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
-                        }
-                     ]
+                     // [
+                     //    {
+                     //       text: localText?.paymeBtnProductivity,
+                     //       url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
+                     //    }
+                     // ]
                   ]
                }
             }).then(async () => {
@@ -124,15 +125,15 @@ bot.onText(/\/start/, async (msg) => {
                            [
                               {
                                  text: localText?.clickBtnTask,
-                                 url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
+                                 url: `https://planner.aiseller.uz/click/${chatId}/Vazifalar`
                               }
                            ],
-                           [
-                              {
-                                 text: localText?.paymeBtnTask,
-                                 url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
-                              }
-                           ]
+                           // [
+                           //    {
+                           //       text: localText?.paymeBtnTask,
+                           //       url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
+                           //    }
+                           // ]
                         ]
                      }
                   })
@@ -144,15 +145,15 @@ bot.onText(/\/start/, async (msg) => {
                               [
                                  {
                                     text: localText?.clickBtnHabit,
-                                    url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
+                                    url: `https://planner.aiseller.uz/click/${chatId}/Odatlar`
                                  }
                               ],
-                              [
-                                 {
-                                    text: localText?.paymeBtnHabit,
-                                    url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
-                                 }
-                              ]
+                              // [
+                              //    {
+                              //       text: localText?.paymeBtnHabit,
+                              //       url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
+                              //    }
+                              // ]
                            ]
                         }
                      }).then(async () => {
@@ -163,15 +164,15 @@ bot.onText(/\/start/, async (msg) => {
                                     [
                                        {
                                           text: localText?.clickBtnAll,
-                                          url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
+                                          url: `https://planner.aiseller.uz/click/${chatId}/Barchasi`
                                        }
                                     ],
-                                    [
-                                       {
-                                          text: localText?.paymeBtnAll,
-                                          url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
-                                       }
-                                    ],
+                                    // [
+                                    //    {
+                                    //       text: localText?.paymeBtnAll,
+                                    //       url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
+                                    //    }
+                                    // ]
                                  ]
                               }
                            })
@@ -249,15 +250,15 @@ bot.on('contact', async (msg) => {
                         [
                            {
                               text: localText?.clickBtnProductivity,
-                              url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
+                              url: `https://planner.aiseller.uz/click/${chatId}/Produktivlik`
                            }
                         ],
-                        [
-                           {
-                              text: localText?.paymeBtnProductivity,
-                              url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Produktivlik`
-                           }
-                        ]
+                        // [
+                        //    {
+                        //       text: localText?.paymeBtnProductivity,
+                        //       url: `https://planner.aiseller.uz/payme/${chatId}/Produktivlik`
+                        //    }
+                        // ]
                      ]
                   }
                }).then(async () => {
@@ -268,15 +269,15 @@ bot.on('contact', async (msg) => {
                               [
                                  {
                                     text: localText?.clickBtnTask,
-                                    url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
+                                    url: `https://planner.aiseller.uz/click/${chatId}/Vazifalar`
                                  }
                               ],
-                              [
-                                 {
-                                    text: localText?.paymeBtnTask,
-                                    url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Vazifalar`
-                                 }
-                              ],
+                              // [
+                              //    {
+                              //       text: localText?.paymeBtnTask,
+                              //       url: `https://planner.aiseller.uz/payme/${chatId}/Vazifalar`
+                              //    }
+                              // ]
                            ]
                         }
                      })
@@ -288,15 +289,15 @@ bot.on('contact', async (msg) => {
                                  [
                                     {
                                        text: localText?.clickBtnHabit,
-                                       url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
+                                       url: `https://planner.aiseller.uz/click/${chatId}/Odatlar`
                                     }
                                  ],
-                                 [
-                                    {
-                                       text: localText?.paymeBtnHabit,
-                                       url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=49000&additional_param4=Odatlar`
-                                    }
-                                 ]
+                                 // [
+                                 //    {
+                                 //       text: localText?.paymeBtnHabit,
+                                 //       url: `https://planner.aiseller.uz/payme/${chatId}/Odatlar`
+                                 //    }
+                                 // ]
                               ]
                            }
                         }).then(async () => {
@@ -307,15 +308,15 @@ bot.on('contact', async (msg) => {
                                        [
                                           {
                                              text: localText?.clickBtnAll,
-                                             url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
+                                             url: `https://planner.aiseller.uz/click/${chatId}/Barchasi`
                                           }
                                        ],
-                                       [
-                                          {
-                                             text: localText?.paymeBtnAll,
-                                             url: `https://my.click.uz/services/pay?merchant_id=26420&service_id=34442&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
-                                          }
-                                       ]
+                                       // [
+                                       //    {
+                                       //       text: localText?.paymeBtnAll,
+                                       //       url: `https://planner.aiseller.uz/payme/${chatId}/Barchasi`
+                                       //    }
+                                       // ]
                                     ]
                                  }
                               })
@@ -346,6 +347,7 @@ app.use(express.json());
 app.use(express.urlencoded({
    extended: true
 }));
+app.use("/api/v1", router);
 
 app.get('/:chat_id/:tarif', async (req, res) => {
    const { chat_id, tarif } = req.params
