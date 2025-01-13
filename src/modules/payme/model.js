@@ -150,6 +150,16 @@ const updateTransactionState = (
       currentTime
    )
 };
+const foundTransactionList = (from, to) => {
+   const QUERY = `
+      SELECT
+         *
+      FROM
+         create_time >= $1 AND create_time <= $2;
+   `;
+
+   return fetchALL(QUERY, from, to)
+}
 
 module.exports = {
    foundUser,
@@ -158,5 +168,6 @@ module.exports = {
    addTransaction,
    updateTransactionPerform,
    updateTransactionPaid,
-   updateTransactionState
+   updateTransactionState,
+   foundTransactionList
 }
