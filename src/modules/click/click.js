@@ -10,6 +10,9 @@ module.exports = {
          const { click_trans_id, amount, param2, param3, merchant_trans_id, error, error_note } = req.body
          let code = '';
 
+         console.log(req.body)
+
+
          const makeCode = (length) => {
             let characters = '0123456789';
             let charactersLength = characters.length;
