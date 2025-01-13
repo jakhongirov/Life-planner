@@ -20,7 +20,14 @@ module.exports = {
 
          if (error_note === 'Success') {
             if (merchant_trans_id == "Lifeplanneruz") {
-               await model.addTransaction(click_trans_id, amount, param2, merchant_trans_id, error, error_note, param3, "prepare")
+               if (amount != 99000 || amount != 49000) {
+                  return res.json({
+                     error_code: 400,
+                     error_note: "Неверная сумма."
+                  })
+               } else {
+                  await model.addTransaction(click_trans_id, amount, param2, merchant_trans_id, error, error_note, param3, "prepare")
+               }
             }
          }
 
