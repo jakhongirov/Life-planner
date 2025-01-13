@@ -312,7 +312,7 @@ module.exports = {
                               user_id: transaction.chat_id,
                               tarif: transaction.payment,
                            },
-                           create_time: new Date(transaction.create_time).getTime(),
+                           create_time: new Date(transaction.create_time).getTime() || 0,
                            perform_time: new Date(transaction.perform_time).getTime() || 0,
                            cancel_time: new Date(transaction.cancel_time).getTime() || 0,
                            transaction: transaction.transaction,
