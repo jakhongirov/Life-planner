@@ -15,7 +15,7 @@ module.exports = {
             let { amount } = params;
             amount = Math.floor(amount / 100);
 
-            if (Number(amount) != 9900000 || Number(amount) != 4900000) {
+            if (params?.amount != 9900000 || params?.amount != 4900000) {
                return res.json({
                   error: {
                      name: "InvalidAmount",
@@ -56,7 +56,7 @@ module.exports = {
             let { amount } = params;
             amount = Math.floor(amount / 100);
 
-            if (Number(amount) != 9900000 || Number(amount) != 4900000) {
+            if (params?.amount != 9900000 || params?.amount != 4900000) {
                return res.json({
                   error: {
                      name: "InvalidAmount",
