@@ -12,6 +12,24 @@ module.exports = {
             console.log("CheckPerformTransaction", req.body)
             const foundUser = await model.foundUser(params?.account?.user_id)
 
+            let { amount } = params;
+            amount = Math.floor(amount / 100);
+
+            if (Number(amount) !== 99000 || Number(amount) !== 49000) {
+               return res.json({
+                  error: {
+                     name: "InvalidAmount",
+                     code: -31001,
+                     message: {
+                        uz: "Noto'g'ri summa.",
+                        ru: "Неверная сумма.",
+                        en: "Incorrect amount.",
+                     }
+                  },
+                  id: id
+               });
+            }
+
             if (foundUser) {
                return res.status(200).json({
                   result: {
@@ -37,6 +55,21 @@ module.exports = {
 
             let { amount } = params;
             amount = Math.floor(amount / 100);
+
+            if (Number(amount) !== 99000 || Number(amount) !== 49000) {
+               return res.json({
+                  error: {
+                     name: "InvalidAmount",
+                     code: -31001,
+                     message: {
+                        uz: "Noto'g'ri summa.",
+                        ru: "Неверная сумма.",
+                        en: "Incorrect amount.",
+                     }
+                  },
+                  id: id
+               });
+            }
 
             const transaction = await model.foundTransaction(params.id);
             const foundUser = await model.foundUser(params?.account?.user_id)
@@ -280,6 +313,40 @@ module.exports = {
                   reason: transaction.reason,
                }
             });
+         } else if (method == "GetStatement") {
+            console.log("GetStatement", req.body)
+            const foundTransactionList = await model.foundTransactionList(params?.from, params?.to)
+
+            if (foundTransactionList?.length > 0) {
+               return res.json({
+                  result: {
+                     transactions: foundTransactionList.map((transaction) => {
+                        return {
+                           id: transaction.id,
+                           time: new Date(transaction.createdAt).getTime(),
+                           amount: transaction.amount,
+                           account: {
+                              user_id: transaction.chat_id,
+                              tarif: transaction.payment,
+                           },
+                           create_time: new Date(transaction.create_time).getTime(),
+                           perform_time: new Date(transaction.perform_time).getTime(),
+                           cancel_time: new Date(transaction.cancel_time).getTime(),
+                           transaction: transaction.transaction,
+                           state: transaction.state,
+                           reason: transaction.reason || null,
+                        };
+                     })
+                  }
+               })
+            } else {
+               return res.json({
+                  result: {
+                     transactions: []
+                  }
+               })
+            }
+
          }
 
       } catch (error) {
