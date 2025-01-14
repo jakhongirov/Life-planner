@@ -66,7 +66,7 @@ const habit = [
 const all = [
    {
       type: 'photo',
-      media: fs.readFileSync('./images/ALL1.png'),
+      media: fs.readFileSync('./images/ALL4.png'),
    },
    {
       type: 'photo',
@@ -78,7 +78,7 @@ const all = [
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/ALL4.png'),
+      media: fs.readFileSync('./images/ALL1.png'),
    }
 ]
 
