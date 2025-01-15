@@ -13,6 +13,7 @@ module.exports = {
             const foundUser = await model.foundUser(params?.account?.user_id)
 
             if (params?.amount == 9900000 || params?.amount == 4900000) {
+               console.log(foundUser, params?.amount)
                if (foundUser) {
                   return res.status(200).json({
                      result: {
