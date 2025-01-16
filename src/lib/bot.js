@@ -16,4 +16,4 @@ const botPayment = new TelegramBot(process.env.PAYMENT_BOT, {
    }
 });
 
-module.exports = { bot }
+module.exports = { bot, botPayment }
