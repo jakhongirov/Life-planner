@@ -1,6 +1,6 @@
 require('dotenv').config();
 const model = require('./model')
-const bot = require('../../lib/bot')
+const { bot, botPayment } = require('../../lib/bot')
 const localText = require('../../../text.json')
 
 module.exports = {
@@ -212,13 +212,25 @@ module.exports = {
 
 
             if (transaction?.payment == "Produktivlik") {
-               bot.sendMessage(transaction?.chat_id, localText.productivityTextLink)
+               bot.sendMessage(transaction?.chat_id, localText.productivityTextLink).then(async () => {
+                  await botPayment.sendMessage(397910090, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+                  await botPayment.sendMessage(634041736, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+               })
             } else if (transaction?.payment == "Vazifalar") {
-               bot.sendMessage(transaction?.chat_id, localText.taskTextLink)
+               bot.sendMessage(transaction?.chat_id, localText.taskTextLink).then(async () => {
+                  await botPayment.sendMessage(397910090, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+                  await botPayment.sendMessage(634041736, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+               })
             } else if (transaction?.payment == "Odatlar") {
-               bot.sendMessage(transaction?.chat_id, localText.habitTextLink)
+               bot.sendMessage(transaction?.chat_id, localText.habitTextLink).then(async () => {
+                  await botPayment.sendMessage(397910090, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+                  await botPayment.sendMessage(634041736, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+               })
             } else if (transaction?.payment == "Barchasi") {
-               bot.sendMessage(transaction?.chat_id, localText.allTextLink)
+               bot.sendMessage(transaction?.chat_id, localText.allTextLink).then(async () => {
+                  await botPayment.sendMessage(397910090, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+                  await botPayment.sendMessage(634041736, `PAYME:\n\nChat_id:${transaction?.chat_id}\nTarif:${transaction?.payment}\nAmount:${transaction?.amount}`)
+               })
             }
 
             return res.json({

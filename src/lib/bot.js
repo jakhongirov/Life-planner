@@ -8,4 +8,12 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, {
    }
 });
 
-module.exports = bot
+const botPayment = new TelegramBot(process.env.PAYMENT_BOT, {
+   polling: {
+      interval: 1000,
+      autoStart: true,
+      allowedUpdates: ['chat_member'] // Explicitly allow chat_member updates
+   }
+});
+
+module.exports = { bot }

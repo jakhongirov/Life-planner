@@ -1,6 +1,6 @@
 const model = require('./model')
 const iconv = require('iconv-lite');
-const bot = require('../../lib/bot')
+const { bot, botPayment } = require('../../lib/bot')
 const axios = require("axios")
 const localText = require('../../../text.json')
 
@@ -67,13 +67,25 @@ module.exports = {
                // })
 
                if (param3 == "Produktivlik") {
-                  bot.sendMessage(param2, localText.productivityTextLink)
+                  bot.sendMessage(param2, localText.productivityTextLink).then(async () => {
+                     await botPayment.sendMessage(397910090, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                     await botPayment.sendMessage(634041736, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                  })
                } else if (param3 == "Vazifalar") {
-                  bot.sendMessage(param2, localText.taskTextLink)
+                  bot.sendMessage(param2, localText.taskTextLink).then(async () => {
+                     await botPayment.sendMessage(397910090, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                     await botPayment.sendMessage(634041736, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                  })
                } else if (param3 == "Odatlar") {
-                  bot.sendMessage(param2, localText.habitTextLink)
+                  bot.sendMessage(param2, localText.habitTextLink).then(async () => {
+                     await botPayment.sendMessage(397910090, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                     await botPayment.sendMessage(634041736, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                  })
                } else if (param3 == "Barchasi") {
-                  bot.sendMessage(param2, localText.allTextLink)
+                  bot.sendMessage(param2, localText.allTextLink).then(async () => {
+                     await botPayment.sendMessage(397910090, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                     await botPayment.sendMessage(634041736, `CLICK:\n\nChat_id:${param2}\nTarif:${param3}\nAmount:${amount}`)
+                  })
                }
 
             } else {

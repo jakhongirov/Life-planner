@@ -8,58 +8,50 @@ const router = require("./src/modules");
 const { PORT } = require('./src/config')
 const localText = require('./text.json')
 const model = require('./model')
-const bot = require('./src/lib/bot')
+const { bot } = require('./src/lib/bot')
 
 const productivity = [
    {
       type: 'photo',
-      media: fs.readFileSync('./images/prductivity1.png')
+      media: fs.readFileSync('./images/produktivlikplanner1.png')
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/prductivity2.png'),
+      media: fs.readFileSync('./images/produktivlikplanner2.png'),
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/prductivity3.png'),
+      media: fs.readFileSync('./images/produktivlikplanner3.png'),
    }
 ]
 
 const tasks = [
    {
       type: 'photo',
-      media: fs.readFileSync('./images/task1.png')
+      media: fs.readFileSync('./images/vazifalarplanneri1.png')
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/task2.png'),
+      media: fs.readFileSync('./images/vazifalarplanneri2.png'),
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/task3.png'),
-   },
-   {
-      type: 'photo',
-      media: fs.readFileSync('./images/task4.png'),
+      media: fs.readFileSync('./images/vazifalarplanneri3.png'),
    }
 ]
 
 const habit = [
    {
       type: 'photo',
-      media: fs.readFileSync('./images/habit1.png'),
+      media: fs.readFileSync('./images/odatlarplanneri1.png'),
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/habit2.png'),
+      media: fs.readFileSync('./images/odatlarplanneri2.png'),
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/habit3.png'),
-   },
-   {
-      type: 'photo',
-      media: fs.readFileSync('./images/habit4.png'),
+      media: fs.readFileSync('./images/odatlarplanneri3.png'),
    }
 ]
 
