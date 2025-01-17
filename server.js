@@ -8,7 +8,7 @@ const router = require("./src/modules");
 const { PORT } = require('./src/config')
 const localText = require('./text.json')
 const model = require('./model')
-const { bot } = require('./src/lib/bot')
+const { bot, botPayment } = require('./src/lib/bot')
 
 const productivity = [
    {
@@ -347,6 +347,40 @@ bot.on('message', async (msg) => {
       bot.sendMessage(chatId, localText.communityText)
    }
 })
+
+botPayment.on('message', async (msg) => {
+   const usersList = await model.usersList()
+
+   for (const user of usersList) {
+      try {
+         if (msg.text) {
+            await bot.sendMessage(user.chat_id, msg.text);
+         } else if (msg.photo) {
+            // Send the photo (last item in msg.photo array is the highest resolution)
+            const photoFileId = msg.photo[msg.photo.length - 1].file_id;
+            await bot.sendPhoto(user.chat_id, photoFileId, { caption: msg.caption || '' });
+         } else if (msg.video) {
+            await bot.sendVideo(user.chat_id, msg.video.file_id, { caption: msg.caption || '' });
+         } else if (msg.audio) {
+            await bot.sendAudio(user.chat_id, msg.audio.file_id, { caption: msg.caption || '' });
+         } else if (msg.voice) {
+            await bot.sendVoice(user.chat_id, msg.voice.file_id);
+         } else if (msg.document) {
+            await bot.sendDocument(user.chat_id, msg.document.file_id, { caption: msg.caption || '' });
+         } else if (msg.location) {
+            await bot.sendLocation(user.chat_id, msg.location.latitude, msg.location.longitude);
+         } else if (msg.contact) {
+            await bot.sendContact(user.chat_id, msg.contact.phone_number, msg.contact.first_name);
+         } else if (msg.sticker) {
+            await bot.sendSticker(user.chat_id, msg.sticker.file_id);
+         } else {
+            console.log(`Unhandled message type for user ${user.chat_id}`, msg);
+         }
+      } catch (error) {
+         console.error(`Failed to send message to user ${user.chat_id}:`, error);
+      }
+   }
+});
 
 app.use(cors({
    origin: "*"
