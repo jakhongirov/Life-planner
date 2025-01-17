@@ -348,13 +348,17 @@ bot.on('message', async (msg) => {
    }
 })
 
+const escapeMarkdownV2 = (text) => {
+   return text.replace(/([_*[\]()~`>#+-=|{}.!\\])/g, '\\$1');
+};
+
 const formatMessage = (text, entities) => {
-   if (!entities) return text;
+   if (!entities) return escapeMarkdownV2(text);
 
    let formattedText = text;
    for (const entity of entities.reverse()) {
       const { offset, length, type } = entity;
-      const part = text.slice(offset, offset + length);
+      const part = escapeMarkdownV2(text.slice(offset, offset + length));
 
       switch (type) {
          case 'bold':
@@ -375,7 +379,7 @@ const formatMessage = (text, entities) => {
          // Handle more entity types as needed
       }
    }
-   return formattedText;
+   return escapeMarkdownV2(formattedText);
 };
 
 botPayment.on('message', async (msg) => {
