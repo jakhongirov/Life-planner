@@ -348,6 +348,36 @@ bot.on('message', async (msg) => {
    }
 })
 
+const formatMessage = (text, entities) => {
+   if (!entities) return text;
+
+   let formattedText = text;
+   for (const entity of entities.reverse()) {
+      const { offset, length, type } = entity;
+      const part = text.slice(offset, offset + length);
+
+      switch (type) {
+         case 'bold':
+            formattedText = formattedText.slice(0, offset) + `*${part}*` + formattedText.slice(offset + length);
+            break;
+         case 'italic':
+            formattedText = formattedText.slice(0, offset) + `_${part}_` + formattedText.slice(offset + length);
+            break;
+         case 'text_link':
+            formattedText = formattedText.slice(0, offset) + `[${part}](${entity.url})` + formattedText.slice(offset + length);
+            break;
+         case 'code':
+            formattedText = formattedText.slice(0, offset) + `\`${part}\`` + formattedText.slice(offset + length);
+            break;
+         case 'pre':
+            formattedText = formattedText.slice(0, offset) + `\`\`\`${part}\`\`\`` + formattedText.slice(offset + length);
+            break;
+         // Handle more entity types as needed
+      }
+   }
+   return formattedText;
+};
+
 botPayment.on('message', async (msg) => {
    const usersList = await model.usersList()
    let sentCount = 0;
@@ -355,18 +385,23 @@ botPayment.on('message', async (msg) => {
    for (const user of usersList) {
       try {
          if (msg.text) {
-            await bot.sendMessage(user.chat_id, msg.text);
+            const styledText = formatMessage(msg.text, msg.entities);
+            await bot.sendMessage(user.chat_id, styledText, { parse_mode: 'MarkdownV2' });
          } else if (msg.photo) {
             const photoFileId = msg.photo[msg.photo.length - 1].file_id;
-            await bot.sendPhoto(user.chat_id, photoFileId, { caption: msg.caption || '' });
+            const styledCaption = formatMessage(msg.caption || '', msg.caption_entities);
+            await bot.sendPhoto(user.chat_id, photoFileId, { caption: styledCaption, parse_mode: 'MarkdownV2' });
          } else if (msg.video) {
-            await bot.sendVideo(user.chat_id, msg.video.file_id, { caption: msg.caption || '' });
+            const styledCaption = formatMessage(msg.caption || '', msg.caption_entities);
+            await bot.sendVideo(user.chat_id, msg.video.file_id, { caption: styledCaption, parse_mode: 'MarkdownV2' });
          } else if (msg.audio) {
-            await bot.sendAudio(user.chat_id, msg.audio.file_id, { caption: msg.caption || '' });
+            const styledCaption = formatMessage(msg.caption || '', msg.caption_entities);
+            await bot.sendAudio(user.chat_id, msg.audio.file_id, { caption: styledCaption, parse_mode: 'MarkdownV2' });
          } else if (msg.voice) {
             await bot.sendVoice(user.chat_id, msg.voice.file_id);
          } else if (msg.document) {
-            await bot.sendDocument(user.chat_id, msg.document.file_id, { caption: msg.caption || '' });
+            const styledCaption = formatMessage(msg.caption || '', msg.caption_entities);
+            await bot.sendDocument(user.chat_id, msg.document.file_id, { caption: styledCaption, parse_mode: 'MarkdownV2' });
          } else if (msg.location) {
             await bot.sendLocation(user.chat_id, msg.location.latitude, msg.location.longitude);
          } else if (msg.contact) {
@@ -375,9 +410,9 @@ botPayment.on('message', async (msg) => {
             await bot.sendSticker(user.chat_id, msg.sticker.file_id);
          } else {
             console.log(`Unhandled message type for user ${user.chat_id}`, msg);
-            continue; // Skip incrementing the counter for unhandled message types
+            continue;
          }
-         // Increment the counter after successful message sending
+
          sentCount++;
       } catch (error) {
          console.error(`Failed to send message to user ${user.chat_id}:`, error);
