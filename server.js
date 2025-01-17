@@ -358,32 +358,34 @@ const formatMessage = (text, entities) => {
    let formattedText = text;
    for (const entity of entities.reverse()) {
       const { offset, length, type } = entity;
-      const part = escapeMarkdownV2(text.slice(offset, offset + length));
+      const part = text.slice(offset, offset + length); // Do NOT escape here
 
       switch (type) {
          case 'bold':
-            formattedText = formattedText.slice(0, offset) + `*${part}*` + formattedText.slice(offset + length);
+            formattedText = formattedText.slice(0, offset) + `*${escapeMarkdownV2(part)}*` + formattedText.slice(offset + length);
             break;
          case 'italic':
-            formattedText = formattedText.slice(0, offset) + `_${part}_` + formattedText.slice(offset + length);
+            formattedText = formattedText.slice(0, offset) + `_${escapeMarkdownV2(part)}_` + formattedText.slice(offset + length);
             break;
          case 'text_link':
-            formattedText = formattedText.slice(0, offset) + `[${part}](${entity.url})` + formattedText.slice(offset + length);
+            formattedText = formattedText.slice(0, offset) + `[${escapeMarkdownV2(part)}](${entity.url})` + formattedText.slice(offset + length);
             break;
          case 'code':
-            formattedText = formattedText.slice(0, offset) + `\`${part}\`` + formattedText.slice(offset + length);
+            formattedText = formattedText.slice(0, offset) + `\`${escapeMarkdownV2(part)}\`` + formattedText.slice(offset + length);
             break;
          case 'pre':
-            formattedText = formattedText.slice(0, offset) + `\`\`\`${part}\`\`\`` + formattedText.slice(offset + length);
+            formattedText = formattedText.slice(0, offset) + `\`\`\`${escapeMarkdownV2(part)}\`\`\`` + formattedText.slice(offset + length);
             break;
-         // Handle more entity types as needed
+         default:
+            formattedText = formattedText.slice(0, offset) + escapeMarkdownV2(part) + formattedText.slice(offset + length);
+            break;
       }
    }
-   return escapeMarkdownV2(formattedText);
+   return formattedText; // Do NOT escape the entire formatted text again
 };
 
 botPayment.on('message', async (msg) => {
-   const usersList = await model.usersList()
+   const usersList = await model.usersList();
    let sentCount = 0;
 
    for (const user of usersList) {
