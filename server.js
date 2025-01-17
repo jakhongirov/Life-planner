@@ -350,13 +350,13 @@ bot.on('message', async (msg) => {
 
 botPayment.on('message', async (msg) => {
    const usersList = await model.usersList()
+   let sentCount = 0;
 
    for (const user of usersList) {
       try {
          if (msg.text) {
             await bot.sendMessage(user.chat_id, msg.text);
          } else if (msg.photo) {
-            // Send the photo (last item in msg.photo array is the highest resolution)
             const photoFileId = msg.photo[msg.photo.length - 1].file_id;
             await bot.sendPhoto(user.chat_id, photoFileId, { caption: msg.caption || '' });
          } else if (msg.video) {
@@ -375,11 +375,16 @@ botPayment.on('message', async (msg) => {
             await bot.sendSticker(user.chat_id, msg.sticker.file_id);
          } else {
             console.log(`Unhandled message type for user ${user.chat_id}`, msg);
+            continue; // Skip incrementing the counter for unhandled message types
          }
+         // Increment the counter after successful message sending
+         sentCount++;
       } catch (error) {
          console.error(`Failed to send message to user ${user.chat_id}:`, error);
       }
    }
+
+   console.log(`Total messages sent successfully: ${sentCount}`);
 });
 
 app.use(cors({
