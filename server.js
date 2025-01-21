@@ -9,6 +9,9 @@ const { PORT } = require('./src/config')
 const localText = require('./text.json')
 const model = require('./model')
 const { bot, botPayment } = require('./src/lib/bot')
+const {
+   CronJob
+} = require('cron');
 
 const productivity = [
    {
@@ -456,5 +459,16 @@ app.get('/:chat_id/:tarif', async (req, res) => {
       message: "ok"
    })
 })
+
+const job = new CronJob('0 16 * * *', async () => {
+   const userCount = await model.userCount()
+   const content = `User count: ${userCount?.count}`
+
+   botPayment.sendMessage(397910090, content)
+   botPayment.sendMessage(634041736, content)
+});
+
+// Start the job
+job.start();
 
 app.listen(PORT, console.log(PORT))
