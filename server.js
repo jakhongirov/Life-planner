@@ -171,7 +171,7 @@ bot.onText(/\/start/, async (msg) => {
                }).then(async () => {
                   const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Odatlar;ac.ilova=Lifeplanneruz;a=4900000`;
                   const base64Encoded = btoa(text);
-                  await forwardMediaGroup(chatId, process.env.CHANNEL_ID, 1).then(async () => {
+                  await forwardMediaGroup(chatId, process.env.CHANNEL_ID, 6).then(async () => {
                      bot.sendMessage(chatId, localText?.habitText, {
                         reply_markup: {
                            inline_keyboard: [
