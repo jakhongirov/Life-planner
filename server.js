@@ -143,7 +143,7 @@ bot.onText(/\/start/, async (msg) => {
                }).then(async () => {
                   const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Odatlar;ac.ilova=Lifeplanneruz;a=4900000`;
                   const base64Encoded = btoa(text);
-                  bot.getMessage(chatId, 1).then(originalMessage => {
+                  bot.getMessage(process.env.CHANNEL_ID, 1).then(originalMessage => {
                      const mediaItems = originalMessage.media_group_id
                         ? originalMessage.media_group
                         : []; // Get all media items in the group
