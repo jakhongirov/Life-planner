@@ -43,24 +43,48 @@ const tasks = [
    }
 ]
 
+// const habit = [
+//    {
+//       type: 'photo',
+//       media: fs.readFileSync('./images/odatlarplanneri1.png'),
+//    },
+//    {
+//       type: 'photo',
+//       media: fs.readFileSync('./images/odatlarplanneri2.png'),
+//    },
+//    {
+//       type: 'photo',
+//       media: fs.readFileSync('./images/odatlarplanneri3.png'),
+//    },
+//    {
+//       type: 'video',
+//       media: fs.createReadStream('./images/odatlar.mp4')
+//    }
+// ]
+
 const habit = [
    {
-      type: 'photo',
-      media: fs.readFileSync('./images/odatlarplanneri1.png'),
+     type: 'photo',
+     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANzAAM2BA',
    },
    {
-      type: 'photo',
-      media: fs.readFileSync('./images/odatlarplanneri2.png'),
+     type: 'photo',
+     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANtAAM2BA',
    },
    {
-      type: 'photo',
-      media: fs.readFileSync('./images/odatlarplanneri3.png'),
+     type: 'photo',
+     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN4AAM2BA',
    },
-   // {
-   //    type: 'video',
-   //    media: fs.createReadStream('./images/odatlar.mp4')
-   // }
-]
+   {
+     type: 'photo',
+     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN5AAM2BA',
+   },
+   {
+     type: 'video',
+     media: 'BAACAgIAAyEFAASIFGYaAAMNZ5DhoknCQjK528m-LozKS4IjnfgAAs1nAAJ3GIlIhhSvdRGQdSw2BA',
+     caption: 'Here is the video content!',
+   },
+ ];
 
 const all = [
    {
