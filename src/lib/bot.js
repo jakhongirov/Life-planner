@@ -5,6 +5,9 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, {
       interval: 1000,
       autoStart: true,
       allowedUpdates: ['chat_member'] // Explicitly allow chat_member updates
+   },
+   request: {
+      timeout: 30000, // Increase timeout to 30 seconds
    }
 });
 
