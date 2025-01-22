@@ -16,74 +16,74 @@ const {
 const productivity = [
    {
       type: 'photo',
-      media: fs.readFileSync('./images/produktivlikplanner1.png')
+      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAANzAAM2BA',
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/produktivlikplanner2.png'),
+      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAANtAAM2BA',
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/produktivlikplanner3.png'),
-   }
-]
+      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAAN4AAM2BA',
+   },
+   {
+      type: 'photo',
+      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAAN5AAM2BA',
+   },
+   {
+      type: 'video',
+      media: 'BAACAgIAAyEFAASIFGYaAAMVZ5DrD5PLaTv6jfoVJKgC0tlXWGAAAixoAAJ3GIlIuc508j1PX6k2BA',
+      caption: 'Here is the video content!',
+   },
+];
+
 
 const tasks = [
    {
       type: 'photo',
-      media: fs.readFileSync('./images/vazifalarplanneri1.png')
+      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAANzAAM2BA',
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/vazifalarplanneri2.png'),
+      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAANtAAM2BA',
    },
    {
       type: 'photo',
-      media: fs.readFileSync('./images/vazifalarplanneri3.png'),
-   }
-]
+      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAAN4AAM2BA',
+   },
+   {
+      type: 'photo',
+      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAAN5AAM2BA',
+   },
+   {
+      type: 'video',
+      media: 'BAACAgIAAyEFAASIFGYaAAMRZ5Dn6QduKq1w7QqR3CHrDT1E52UAAhBoAAJ3GIlItoOyiqoFWTM2BA'
+   },
+];
 
-// const habit = [
-//    {
-//       type: 'photo',
-//       media: fs.readFileSync('./images/odatlarplanneri1.png'),
-//    },
-//    {
-//       type: 'photo',
-//       media: fs.readFileSync('./images/odatlarplanneri2.png'),
-//    },
-//    {
-//       type: 'photo',
-//       media: fs.readFileSync('./images/odatlarplanneri3.png'),
-//    },
-//    {
-//       type: 'video',
-//       media: fs.createReadStream('./images/odatlar.mp4')
-//    }
-// ]
 
 const habit = [
    {
-     type: 'photo',
-     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANzAAM2BA',
+      type: 'photo',
+      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANzAAM2BA',
    },
    {
-     type: 'photo',
-     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANtAAM2BA',
+      type: 'photo',
+      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANtAAM2BA',
    },
    {
-     type: 'photo',
-     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN4AAM2BA',
+      type: 'photo',
+      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN4AAM2BA',
    },
    {
-     type: 'photo',
-     media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN5AAM2BA',
+      type: 'photo',
+      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN5AAM2BA',
    },
    {
-     type: 'video',
-     media: 'BAACAgIAAyEFAASIFGYaAAMNZ5DhoknCQjK528m-LozKS4IjnfgAAs1nAAJ3GIlIhhSvdRGQdSw2BA',
+      type: 'video',
+      media: 'BAACAgIAAyEFAASIFGYaAAMNZ5DhoknCQjK528m-LozKS4IjnfgAAs1nAAJ3GIlIhhSvdRGQdSw2BA',
    },
- ];
+];
 
 const all = [
    {
@@ -215,24 +215,29 @@ bot.onText(/\/start/, async (msg) => {
                         const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
                         const base64Encoded = btoa(text);
                         bot.sendMediaGroup(chatId, all).then(async () => {
-                           bot.sendMessage(chatId, localText?.allText, {
-                              reply_markup: {
-                                 inline_keyboard: [
-                                    [
-                                       {
-                                          text: localText?.clickBtnAll,
-                                          url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
-                                       }
-                                    ],
-                                    [
-                                       {
-                                          text: localText?.paymeBtnAll,
-                                          url: `https://checkout.paycom.uz/${base64Encoded}`
-                                       }
+                           bot.sendVideo(chatId, 'https://lifeplanner.aiseller.uz/images/all.mp4', {
+                              caption: "LifePlanner Haqida Umumiy obzor👆🏻👆🏻👆🏻👆🏻"
+                           }).then(async () => {
+                              bot.sendMessage(chatId, localText?.allText, {
+                                 reply_markup: {
+                                    inline_keyboard: [
+                                       [
+                                          {
+                                             text: localText?.clickBtnAll,
+                                             url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
+                                          }
+                                       ],
+                                       [
+                                          {
+                                             text: localText?.paymeBtnAll,
+                                             url: `https://checkout.paycom.uz/${base64Encoded}`
+                                          }
+                                       ]
                                     ]
-                                 ]
-                              }
+                                 }
+                              })
                            })
+
                         })
                      })
                   })
@@ -365,25 +370,29 @@ bot.on('contact', async (msg) => {
                            }
                         }).then(async () => {
                            bot.sendMediaGroup(chatId, all).then(async () => {
-                              const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
-                              const base64Encoded = btoa(text);
-                              bot.sendMessage(chatId, localText?.allText, {
-                                 reply_markup: {
-                                    inline_keyboard: [
-                                       [
-                                          {
-                                             text: localText?.clickBtnAll,
-                                             url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
-                                          }
-                                       ],
-                                       [
-                                          {
-                                             text: localText?.paymeBtnAll,
-                                             url: `https://checkout.paycom.uz/${base64Encoded}`
-                                          }
+                              bot.sendVideo(chatId, 'https://lifeplanner.aiseller.uz/images/all.mp4', {
+                                 caption: "LifePlanner Haqida Umumiy obzor👆🏻👆🏻👆🏻👆🏻"
+                              }).then(async () => {
+                                 const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
+                                 const base64Encoded = btoa(text);
+                                 bot.sendMessage(chatId, localText?.allText, {
+                                    reply_markup: {
+                                       inline_keyboard: [
+                                          [
+                                             {
+                                                text: localText?.clickBtnAll,
+                                                url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
+                                             }
+                                          ],
+                                          [
+                                             {
+                                                text: localText?.paymeBtnAll,
+                                                url: `https://checkout.paycom.uz/${base64Encoded}`
+                                             }
+                                          ]
                                        ]
-                                    ]
-                                 }
+                                    }
+                                 })
                               })
                            })
                         })
