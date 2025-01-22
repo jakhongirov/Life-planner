@@ -28,8 +28,7 @@ const productivity = [
    },
    {
       type: 'video',
-      media: 'BAACAgIAAyEFAASIFGYaAAMVZ5DrD5PLaTv6jfoVJKgC0tlXWGAAAixoAAJ3GIlIuc508j1PX6k2BA',
-      caption: 'Here is the video content!',
+      media: 'BAACAgIAAyEFAASIFGYaAAMVZ5DrD5PLaTv6jfoVJKgC0tlXWGAAAixoAAJ3GIlIuc508j1PX6k2BA'
    },
 ];
 
