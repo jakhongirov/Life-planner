@@ -16,19 +16,15 @@ const {
 const productivity = [
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAANzAAM2BA',
+      media: fs.readFileSync('./images/produktivlikplanner1.png'),
    },
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAANtAAM2BA',
+      media: fs.readFileSync('./images/produktivlikplanner2.png'),
    },
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAAN4AAM2BA',
-   },
-   {
-      type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMUZ5DrD17MoPpjaLK8kkqV8cDn9JkAAqTwMRt3GIlIIz9CsJeNM2ABAAMCAAN5AAM2BA',
+      media: fs.readFileSync('./images/produktivlikplanner3.png'),
    },
    {
       type: 'video',
@@ -41,19 +37,15 @@ const productivity = [
 const tasks = [
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAANzAAM2BA',
+      media: fs.readFileSync('./images/vazifalarplanneri1.png'),
    },
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAANtAAM2BA',
+      media: fs.readFileSync('./images/vazifalarplanneri2.png'),
    },
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAAN4AAM2BA',
-   },
-   {
-      type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMQZ5Dn6c5D2g9STFeXxClCUnvoMbAAApTwMRt3GIlIB0CxI-cOLYIBAAMCAAN5AAM2BA',
+      media: fs.readFileSync('./images/vazifalarplanneri3.png'),
    },
    {
       type: 'video',
@@ -65,19 +57,15 @@ const tasks = [
 const habit = [
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANzAAM2BA',
+      media: fs.readFileSync('./images/odatlarplanneri1.png'),
    },
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAANtAAM2BA',
+      media: fs.readFileSync('./images/odatlarplanneri2.png'),
    },
    {
       type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN4AAM2BA',
-   },
-   {
-      type: 'photo',
-      media: 'AgACAgIAAyEFAASIFGYaAAMMZ5Dhou-eECErvlpzyzXyf2su5n8AAmjwMRt3GIlI5fERdix_JBMBAAMCAAN5AAM2BA',
+      media: fs.readFileSync('./images/odatlarplanneri3.png'),
    },
    {
       type: 'video',
@@ -215,7 +203,7 @@ bot.onText(/\/start/, async (msg) => {
                         const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
                         const base64Encoded = btoa(text);
                         bot.sendMediaGroup(chatId, all).then(async () => {
-                           bot.sendVideo(chatId, 'https://lifeplanner.aiseller.uz/images/all.mp4', {
+                           bot.sendVideo(chatId, fs.createReadStream('./images/all.mp4'), {
                               caption: "LifePlanner Haqida Umumiy obzor👆🏻👆🏻👆🏻👆🏻"
                            }).then(async () => {
                               bot.sendMessage(chatId, localText?.allText, {
