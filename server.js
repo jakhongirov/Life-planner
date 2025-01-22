@@ -55,6 +55,10 @@ const habit = [
    {
       type: 'photo',
       media: fs.readFileSync('./images/odatlarplanneri3.png'),
+   },
+   {
+      type: 'video',
+      media: 'https://lifeplanner.aiseller.uz/images/odatlar.MOV'
    }
 ]
 
@@ -438,6 +442,7 @@ app.use(express.json());
 app.use(express.urlencoded({
    extended: true
 }));
+app.use('/images', express.static(path.resolve(__dirname, 'images')))
 app.use("/api/v1", router);
 
 app.get('/:chat_id/:tarif', async (req, res) => {
