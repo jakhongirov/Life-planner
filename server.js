@@ -81,31 +81,30 @@ const all = [
    }
 ]
 
-async function forwardMediaGroup(targetChatId, sourceChatId, startMessageId) {
+async function forwardMediaGroup(channelId, botChatId, mediaGroupId) {
    try {
-      // Fetch updates to get the media group (or use your logic to fetch messages from the source chat)
-      const updates = await bot.getUpdates({ allowed_updates: ['message'] });
+      // Fetch updates from the bot to find the media group messages
+      const updates = await bot.getUpdates();
 
-      // Filter messages belonging to the media group
-      const mediaGroupId = updates.find(
-         (update) => update.message && update.message.message_id === startMessageId
-      )?.message?.media_group_id;
+      // Filter messages by media_group_id and channel ID
+      const mediaGroupMessages = updates
+         .map(update => update.message)
+         .filter(
+            message =>
+               message &&
+               message.chat &&
+               message.chat.id === channelId &&
+               message.media_group_id === mediaGroupId
+         );
 
-      if (!mediaGroupId) {
-         throw new Error('Media group not found or invalid message ID.');
-      }
-
-      // Forward all messages with the same media_group_id
-      for (const update of updates) {
-         const message = update.message;
-         if (message?.media_group_id === mediaGroupId) {
-            await bot.forwardMessage(targetChatId, sourceChatId, message.message_id);
-         }
+      // Forward each message in the media group to the bot
+      for (const message of mediaGroupMessages) {
+         await bot.forwardMessage(botChatId, message.chat.id, message.message_id);
       }
 
       console.log('Media group forwarded successfully!');
    } catch (error) {
-      console.error('Error forwarding media group:', error.message);
+      console.error('Error forwarding media group:', error);
    }
 }
 
@@ -171,7 +170,7 @@ bot.onText(/\/start/, async (msg) => {
                }).then(async () => {
                   const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Odatlar;ac.ilova=Lifeplanneruz;a=4900000`;
                   const base64Encoded = btoa(text);
-                  bot.sendMediaGroup(chatId, habit,).then(async () => {
+                  await forwardMediaGroup(process.env.CHANNEL_ID, chatId, 13900385552703746).then(async () => {
                      bot.sendMessage(chatId, localText?.habitText, {
                         reply_markup: {
                            inline_keyboard: [
