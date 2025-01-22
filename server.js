@@ -143,7 +143,36 @@ bot.onText(/\/start/, async (msg) => {
                }).then(async () => {
                   const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Odatlar;ac.ilova=Lifeplanneruz;a=4900000`;
                   const base64Encoded = btoa(text);
-                  bot.sendMediaGroup(chatId, habit,).then(async () => {
+                  bot.getMessage(chatId, 1).then(originalMessage => {
+                     const mediaItems = originalMessage.media_group_id
+                        ? originalMessage.media_group
+                        : []; // Get all media items in the group
+
+                     if (mediaItems.length > 0) {
+                        const mediaGroup = mediaItems.map(item => {
+                           if (item.photo) {
+                              return {
+                                 type: 'photo',
+                                 media: item.photo[item.photo.length - 1].file_id,  // Get the largest photo
+                                 caption: 'Sent anonymously', // Optional caption
+                              };
+                           } else if (item.video) {
+                              return {
+                                 type: 'video',
+                                 media: item.video.file_id,
+                                 caption: 'Sent anonymously', // Optional caption
+                              };
+                           }
+                        });
+
+                        // Send the media group as a new message (without sender info)
+                        bot.sendMediaGroup(chatId, mediaGroup)
+                           .then(() => console.log('Media group sent successfully'))
+                           .catch(err => console.error('Error sending media group:', err));
+                     } else {
+                        console.error('No media group found.');
+                     }
+                  }).then(async () => {
                      bot.sendMessage(chatId, localText?.habitText, {
                         reply_markup: {
                            inline_keyboard: [
