@@ -82,7 +82,6 @@ const habit = [
    {
      type: 'video',
      media: 'BAACAgIAAyEFAASIFGYaAAMNZ5DhoknCQjK528m-LozKS4IjnfgAAs1nAAJ3GIlIhhSvdRGQdSw2BA',
-     caption: 'Here is the video content!',
    },
  ];
 
