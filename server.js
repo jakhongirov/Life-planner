@@ -201,26 +201,25 @@ bot.onText(/\/start/, async (msg) => {
                      }).then(async () => {
                         const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
                         const base64Encoded = btoa(text);
-
-                        bot.sendMessage(chatId, localText?.allText, {
-                           reply_markup: {
-                              inline_keyboard: [
-                                 [
-                                    {
-                                       text: localText?.clickBtnAll,
-                                       url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
-                                    }
-                                 ],
-                                 [
-                                    {
-                                       text: localText?.paymeBtnAll,
-                                       url: `https://checkout.paycom.uz/${base64Encoded}`
-                                    }
+                        bot.sendMediaGroup(chatId, all).then(async () => {
+                           bot.sendMessage(chatId, localText?.allText, {
+                              reply_markup: {
+                                 inline_keyboard: [
+                                    [
+                                       {
+                                          text: localText?.clickBtnAll,
+                                          url: `https://my.click.uz/services/pay?merchant_id=34135&service_id=64727&transaction_param=Lifeplanneruz&additional_param3=${chatId}&amount=99000&additional_param4=Barchasi`
+                                       }
+                                    ],
+                                    [
+                                       {
+                                          text: localText?.paymeBtnAll,
+                                          url: `https://checkout.paycom.uz/${base64Encoded}`
+                                       }
+                                    ]
                                  ]
-                              ]
-                           }
-                        }).then(async () => {
-                           bot.sendMediaGroup(chatId, all).then(async () => {
+                              }
+                           }).then(async () => {
                               bot.sendVideo(chatId, "BAACAgIAAyEFAASIFGYaAAMWZ5Dwv_7p_RAhe5GFqgkIZBQroGwAAp1oAAJ3GIlI7EIFHyav0Wk2BA", {
                                  caption: "LifePlanner Haqida Umumiy obzor👆🏻👆🏻👆🏻👆🏻"
                               })
