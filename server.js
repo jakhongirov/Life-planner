@@ -86,8 +86,6 @@ async function forwardMediaGroup(channelId, botChatId, mediaGroupId) {
       // Fetch updates from the bot to find the media group messages
       const updates = await bot.getUpdates();
 
-      console.log(updates[0].message?.chat)
-
       // Filter messages by media_group_id and channel ID
       const mediaGroupMessages = updates
          .map(update => update.message)
@@ -99,21 +97,9 @@ async function forwardMediaGroup(channelId, botChatId, mediaGroupId) {
                message.media_group_id === mediaGroupId
          );
 
-         const mediaGroup = updates
-         .map(update => update.message)
-         .filter(
-            message =>
-               message &&
-               message.chat &&
-               message.chat.id === channelId 
-         );
-         
-         console.log(mediaGroup)
-
       // Forward each message in the media group to the bot
       for (const message of mediaGroupMessages) {
-         await bot.forwardMessage(botChatId, message.chat.id, message.message_id)
-            .catch(err => console.error('Error sending media group:', err));
+         await bot.forwardMessage(botChatId, message.chat.id, message.message_id);
       }
 
       console.log('Media group forwarded successfully!');
@@ -184,7 +170,7 @@ bot.onText(/\/start/, async (msg) => {
                }).then(async () => {
                   const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Odatlar;ac.ilova=Lifeplanneruz;a=4900000`;
                   const base64Encoded = btoa(text);
-                  await forwardMediaGroup(process.env.CHANNEL_ID, chatId, 13900385552703746).then(async () => {
+                  bot.sendMediaGroup(chatId, habit,).then(async () => {
                      bot.sendMessage(chatId, localText?.habitText, {
                         reply_markup: {
                            inline_keyboard: [
