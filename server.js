@@ -99,7 +99,8 @@ async function forwardMediaGroup(channelId, botChatId, mediaGroupId) {
 
       // Forward each message in the media group to the bot
       for (const message of mediaGroupMessages) {
-         await bot.forwardMessage(botChatId, message.chat.id, message.message_id);
+         await bot.forwardMessage(botChatId, message.chat.id, message.message_id)
+            .catch(err => console.error('Error sending media group:', err));
       }
 
       console.log('Media group forwarded successfully!');
