@@ -86,6 +86,8 @@ async function forwardMediaGroup(channelId, botChatId, mediaGroupId) {
       // Fetch updates from the bot to find the media group messages
       const updates = await bot.getUpdates();
 
+      console.log(updates)
+
       // Filter messages by media_group_id and channel ID
       const mediaGroupMessages = updates
          .map(update => update.message)
