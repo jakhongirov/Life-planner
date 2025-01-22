@@ -202,7 +202,7 @@ bot.onText(/\/start/, async (msg) => {
                         const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
                         const base64Encoded = btoa(text);
                         bot.sendMediaGroup(chatId, all).then(async () => {
-                           bot.sendVideo(chatId, "AAMCAgADIQUABIgUZhoAAxZnkPC__un9ECF7kYWqCQhkFCugbAACnWgAAncYiUjsQgUfJq_RaQEAB20AAzYE", {
+                           bot.sendVideo(chatId, "BAACAgIAAyEFAASIFGYaAAMWZ5Dwv_7p_RAhe5GFqgkIZBQroGwAAp1oAAJ3GIlI7EIFHyav0Wk2BA", {
                               caption: "LifePlanner Haqida Umumiy obzor👆🏻👆🏻👆🏻👆🏻"
                            }).then(async () => {
                               bot.sendMessage(chatId, localText?.allText, {
@@ -357,7 +357,7 @@ bot.on('contact', async (msg) => {
                            }
                         }).then(async () => {
                            bot.sendMediaGroup(chatId, all).then(async () => {
-                              bot.sendVideo(chatId, "AAMCAgADIQUABIgUZhoAAxZnkPC__un9ECF7kYWqCQhkFCugbAACnWgAAncYiUjsQgUfJq_RaQEAB20AAzYE", {
+                              bot.sendVideo(chatId, "BAACAgIAAyEFAASIFGYaAAMWZ5Dwv_7p_RAhe5GFqgkIZBQroGwAAp1oAAJ3GIlI7EIFHyav0Wk2BA", {
                                  caption: "LifePlanner Haqida Umumiy obzor👆🏻👆🏻👆🏻👆🏻"
                               }).then(async () => {
                                  const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
