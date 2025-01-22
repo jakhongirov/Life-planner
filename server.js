@@ -99,6 +99,17 @@ async function forwardMediaGroup(channelId, botChatId, mediaGroupId) {
                message.media_group_id === mediaGroupId
          );
 
+         const mediaGroup = updates
+         .map(update => update.message)
+         .filter(
+            message =>
+               message &&
+               message.chat &&
+               message.chat.id === channelId 
+         );
+         
+         console.log(mediaGroup)
+
       // Forward each message in the media group to the bot
       for (const message of mediaGroupMessages) {
          await bot.forwardMessage(botChatId, message.chat.id, message.message_id)
