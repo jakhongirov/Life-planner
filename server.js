@@ -56,10 +56,10 @@ const habit = [
       type: 'photo',
       media: fs.readFileSync('./images/odatlarplanneri3.png'),
    },
-   {
-      type: 'video',
-      media: fs.createReadStream('./images/odatlar.mp4')
-   }
+   // {
+   //    type: 'video',
+   //    media: fs.createReadStream('./images/odatlar.mp4')
+   // }
 ]
 
 const all = [
