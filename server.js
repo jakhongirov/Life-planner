@@ -370,7 +370,7 @@ bot.on('contact', async (msg) => {
                            }
                         }).then(async () => {
                            bot.sendMediaGroup(chatId, all).then(async () => {
-                              bot.sendVideo(chatId, 'https://lifeplanner.aiseller.uz/images/all.mp4', {
+                              bot.sendVideo(chatId, fs.createReadStream('./images/all.mp4'), {
                                  caption: "LifePlanner Haqida Umumiy obzor👆🏻👆🏻👆🏻👆🏻"
                               }).then(async () => {
                                  const text = `m=6784c7c8dc2f84a06fd0fe02;ac.user_id=${chatId};ac.tarif=Barchasi;ac.ilova=Lifeplanneruz;a=9900000`;
