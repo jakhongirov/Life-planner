@@ -87,6 +87,15 @@ module.exports = {
                   })
                }
 
+               return res.status(200).json({
+                  merchant_prepare_id: 5,
+                  merchant_trans_id: merchant_trans_id,
+                  click_trans_id: click_trans_id,
+                  merchant_confirm_id: null,
+                  error: error,
+                  error_note: error_note
+               })
+
             } else {
                const url = 'http://185.217.131.150:777/api/v1/invoice'; // The API endpoint
                const data = {
@@ -105,15 +114,6 @@ module.exports = {
                   });
             }
          }
-
-         return res.status(200).json({
-            merchant_prepare_id: 5,
-            merchant_trans_id: merchant_trans_id,
-            click_trans_id: click_trans_id,
-            merchant_confirm_id: null,
-            error: error,
-            error_note: error_note
-         })
       } catch (error) {
          console.log(error)
          res.status(500).json({
