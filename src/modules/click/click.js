@@ -26,6 +26,15 @@ module.exports = {
                console.log(amount)
                if (Number(amount) == 99000 || Number(amount) == 49000) {
                   await model.addTransaction(click_trans_id, amount, param2, merchant_trans_id, error, error_note, param3, "prepare")
+                  makeCode(4)
+
+                  return res.status(200).json({
+                     merchant_prepare_id: code,
+                     merchant_trans_id: merchant_trans_id,
+                     click_trans_id: click_trans_id,
+                     error: error,
+                     error_note: error_note
+                  })
                } else {
                   console.log(amount)
                   return res.json({
@@ -35,16 +44,6 @@ module.exports = {
                }
             }
          }
-
-         makeCode(4)
-
-         return res.status(200).json({
-            merchant_prepare_id: code,
-            merchant_trans_id: merchant_trans_id,
-            click_trans_id: click_trans_id,
-            error: error,
-            error_note: error_note
-         })
 
       } catch (error) {
          console.log(error)
